@@ -9,7 +9,7 @@ namespace OiMundo
     class Conta
     {
         public int Numero { get; set; }
-        public double Saldo { get; private set; }
+        public double Saldo { get; protected set; }
 
         public Cliente Titular { get; set; }
 
@@ -18,7 +18,7 @@ namespace OiMundo
             this.Saldo -= valorASerSacado;
         }
 
-        public void Deposita(double valorASerDepositado)
+        public virtual void Deposita(double valorASerDepositado)
         {
             this.Saldo += valorASerDepositado;
         }
