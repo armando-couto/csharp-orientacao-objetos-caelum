@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OiMundo
 {
-    class ContaPoupanca : Conta, ITributavel
+    class ContaInvestimento : Conta, ITributavel
     {
         public override void Deposita(double valorASerDepositado)
         {
@@ -15,7 +15,7 @@ namespace OiMundo
 
         public double CalculaTributo()
         {
-            return this.Saldo * 0.02;
+            return this.Saldo * 0.03;
         }
     }
 }

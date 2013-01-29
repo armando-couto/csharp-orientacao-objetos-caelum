@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OiMundo
 {
-    class Conta
+    abstract class Conta
     {
         public int Numero { get; set; }
         public double Saldo { get; protected set; }

@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace OiMundo
 {
-    class ContaPoupanca : Conta, ITributavel
+    class ContaCorrente : Conta
     {
+        private static int totalDeContas = 0;
+
         public override void Deposita(double valorASerDepositado)
         {
             this.Saldo += valorASerDepositado;
-        }
-
-        public double CalculaTributo()
-        {
-            return this.Saldo * 0.02;
         }
     }
 }

@@ -33,9 +33,10 @@ namespace OiMundo
             get
             {
                 var maiorDeIdade = this.idade >= 18;
-                var emancipado = this.documentos.contains("emancipacao");
+                // var emancipado = this.documentos.contains("emancipacao");
                 var possuiCPF = !string.IsNullOrEmpty(this.cpf);
-                return (maiorDeIdade || emancipado) && possuiCPF;
+                // return (maiorDeIdade || emancipado) && possuiCPF;
+                return maiorDeIdade && possuiCPF;
             }
         }
     }

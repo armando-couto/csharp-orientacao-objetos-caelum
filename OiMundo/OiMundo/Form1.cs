@@ -26,10 +26,10 @@ namespace OiMundo
             cliente.nome = "Victor Harada";
             textoTitular.Text = cliente.nome;
 
-            Conta contaDoVictor = new Conta();
+            Conta contaDoVictor = new ContaCorrente();
             contaDoVictor.Titular.nome = "Victor";
             contaDoVictor.Numero = 1;
-            Conta contaDoMario = new Conta();
+            Conta contaDoMario = new ContaCorrente();
             contaDoMario.Titular.nome = "Mario";
             contaDoMario.Numero = 2;
 
@@ -45,7 +45,7 @@ namespace OiMundo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Conta c = new Conta();
+            Conta c = new ContaCorrente();
             c.Titular = new Cliente(); // funciona, pois titular tem um set
             // c.Saldo = 1000.0; // não funciona, pois saldo é private set
             Console.WriteLine(c.Saldo); // funciona, pois saldo tem get
@@ -70,7 +70,7 @@ namespace OiMundo
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Conta c1 = new Conta();
+            Conta c1 = new ContaCorrente();
             ContaPoupanca c2 = new ContaPoupanca();
             
             TotalizadorDeContas t = new TotalizadorDeContas();
@@ -84,7 +84,7 @@ namespace OiMundo
         private void button5_Click(object sender, EventArgs e)
         {
             Conta[] contas = new Conta[2];
-            contas[0] = new Conta();
+            contas[0] = new ContaCorrente();
             contas[1] = new ContaPoupanca();
 
             contas[0].Deposita(300);
@@ -103,6 +103,22 @@ namespace OiMundo
             textoTitular.Text = contaSelecionada.Titular.nome;
             textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
             textoNumero.Text = Convert.ToString(contaSelecionada.Numero);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ContaPoupanca cp = new ContaPoupanca();
+            ContaInvestimento ci = new ContaInvestimento();
+
+            cp.Deposita(10);
+            ci.Deposita(100);
+
+            TotalizadorDeTributos tt = new TotalizadorDeTributos();
+
+            tt.Acumula(cp);
+            tt.Acumula(ci);
+
+            MessageBox.Show("Total é: " + tt.Total);
         }
     }
 }
